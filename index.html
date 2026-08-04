@@ -3,263 +3,433 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Soms.cat - Homenatge a la Familia Soms i a la Garrotxa</title>
+    <title>Soms.cat — Homenatge a la família Soms i a la Garrotxa</title>
     <meta
       name="description"
-      content="Soms.cat és una pàgina homenatge a la familia Soms, la seva herència, llengua i terra, la Garrotxa."
+      content="Soms.cat és una pàgina homenatge a la família Soms, la seva herència, llengua i terra: la Garrotxa."
     />
+    <meta name="theme-color" content="#131013" />
 
     <!-- Social Media -->
     <!-- Facebook & LinkedIn -->
     <meta
       property="og:title"
-      content="Soms.cat - Homenatge a la Familia Soms i a la Garrotxa"
+      content="Soms.cat — Homenatge a la família Soms i a la Garrotxa"
     />
     <meta
       property="og:description"
       content="Descobreix la riquesa de la família Soms, la seva herència cultural i el vincle profund amb la Garrotxa."
     />
-    <meta
-      property="og:image"
-      content="URL a una imatge destacada de la Garrotxa o la família Soms"
-    />
+    <meta property="og:image" content="https://soms.cat/images/santa-pau.jpeg" />
     <meta property="og:url" content="https://soms.cat" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Soms.cat" />
+    <meta property="og:locale" content="ca_ES" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Soms.cat - Homenatge a la Familia Soms i a la Garrotxa"
+      content="Soms.cat — Homenatge a la família Soms i a la Garrotxa"
     />
     <meta
       name="twitter:description"
       content="Descobreix la riquesa de la família Soms, la seva herència cultural i el vincle profund amb la Garrotxa."
     />
-    <meta
-      name="twitter:image"
-      content="URL a una imatge destacada de la Garrotxa o la família Soms"
-    />
+    <meta name="twitter:image" content="https://soms.cat/images/santa-pau.jpeg" />
     <meta name="twitter:site" content="@SomsCat" />
     <meta name="twitter:creator" content="@SomsCat" />
 
     <!-- SEO -->
     <link rel="canonical" href="https://soms.cat" />
     <meta name="robots" content="index, follow" />
-    <meta name="author" content="Familia Soms" />
+    <meta name="author" content="Família Soms" />
     <meta
       name="keywords"
       content="Soms, Garrotxa, herència, cultura, família, llengua, terra"
     />
 
     <!-- Favicon -->
-    <link rel="icon" href="URL al teu favicon" type="image/x-icon" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/olot-apple-touch-icon-180x180.png" />
+    <link
+      rel="icon"
+      href="./images/olot-apple-touch-icon-180x180.png"
+      type="image/png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./images/olot-apple-touch-icon-180x180.png"
+    />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&family=Space+Grotesk:wght@400..700&display=swap"
       rel="stylesheet"
     />
 
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
   </head>
   <body>
-    <header>
-      <h1 class="ubuntu-medium">La Familia Soms</h1>
-      <!-- Navigation -->
+    <div class="ribbon" aria-hidden="true"></div>
+
+    <header class="hero">
+      <img
+        class="hero__bg"
+        src="./images/santa-pau.jpeg"
+        alt=""
+        width="1200"
+        height="800"
+        aria-hidden="true"
+      />
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="hero__content">
+        <img
+          class="hero__escut"
+          src="./images/olot.png"
+          alt="Escut d'Olot"
+          width="1280"
+          height="1789"
+        />
+        <p class="hero__eyebrow">Una nissaga · Una terra · Una llengua</p>
+        <h1 class="hero__title">Soms<span class="hero__tld">.cat</span></h1>
+        <div class="quatre-barres" aria-hidden="true"></div>
+        <p class="hero__sub">
+          Homenatge a la família Soms, la seva herència, la seva llengua i la
+          seva terra: la Garrotxa.
+        </p>
+      </div>
+      <a class="hero__scroll" href="#la-familia">
+        <span>Descobreix la història</span>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M8 2v11M3.5 8.5 8 13l4.5-4.5"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
     </header>
 
-    <div class="header-wrapper">
-      <div class="header"><div class="escut"></div></div>
-    </div>
-
     <main>
-      <section>
-        <h2>La Familia Soms</h2>
-        <p>
-          La família Soms, amb arrels profundament ancorades en la terra fèrtil
-          de La Garrotxa, ha estat sempre sinònim de valentia, emprenedoria i
-          aventura. Des de temps immemorials, aquesta estirp ha combinat la seva
-          passió pel comerç amb un esperit intrèpid, explorant noves terres i
-          establint rutes comercials que han enllaçat els racons més remots amb
-          el cor de Catalunya. Generació rere generació, els Soms han sabut
-          adaptar-se als canvis del temps, transformant els desafiaments en
-          oportunitats. Com a comerciants, van ser pioners en l'introducció de
-          productes exòtics a la regió, enriquint així la cultura i la
-          gastronomia locals. Com a emprenedors, han impulsat iniciatives que
-          han fomentat el desenvolupament econòmic de La Garrotxa, sempre amb un
-          profund respecte pel medi ambient i la sostenibilitat. I com a
-          aventurers, les seves històries d'exploracions llunyanes han alimentat
-          llegendes que encara avui es narren al voltant del foc en les fresques
-          nits de la comarca. El llegat dels Soms és un teixit ric de coratge,
-          innovació i un inquebrantable amor per la seva terra, marcant el camí
-          per a les futures generacions que segueixen el seu exemple.
-        </p>
-      </section>
+      <section class="section" id="la-familia" data-reveal>
+        <p class="section__eyebrow">La nissaga</p>
+        <h2 class="section__title">La família Soms</h2>
 
-      <section class="familia">
-        <blockquote>
-          Descobreix la riquesa de la família <strong>Soms</strong>, la seva
-          herència cultural i el vincle profund amb la
-          <strong>Garrotxa</strong>.
-        </blockquote>
-        <div class="image">
-          <img
-            loading="lazy"
-            src="./images/MapaGarrotxa.png"
-            alt="Map de la Garrotxa"
-          />
+        <div class="section__body">
+          <p class="drop-cap">
+            La família Soms, amb arrels profundament ancorades en la terra
+            fèrtil de la Garrotxa, ha estat sempre sinònim de valentia,
+            emprenedoria i aventura. Des de temps immemorials, aquesta estirp ha
+            combinat la seva passió pel comerç amb un esperit intrèpid,
+            explorant noves terres i establint rutes comercials que han enllaçat
+            els racons més remots amb el cor de Catalunya.
+          </p>
+          <p>
+            Generació rere generació, els Soms han sabut adaptar-se als canvis
+            del temps, transformant els desafiaments en oportunitats. Com a
+            comerciants, van ser pioners en la introducció de productes exòtics
+            a la regió, enriquint així la cultura i la gastronomia locals. Com a
+            emprenedors, han impulsat iniciatives que han fomentat el
+            desenvolupament econòmic de la Garrotxa, sempre amb un profund
+            respecte pel medi ambient i la sostenibilitat.
+          </p>
+          <p>
+            I com a aventurers, les seves històries d'exploracions llunyanes han
+            alimentat llegendes que encara avui es narren al voltant del foc en
+            les fresques nits de la comarca. El llegat dels Soms és un teixit
+            ric de coratge, innovació i un inquebrantable amor per la seva
+            terra, marcant el camí per a les futures generacions que segueixen
+            el seu exemple.
+          </p>
+        </div>
+
+        <div class="familia">
+          <blockquote class="pull-quote">
+            Descobreix la riquesa de la família <strong>Soms</strong>, la seva
+            herència cultural i el vincle profund amb la
+            <strong>Garrotxa</strong>.
+          </blockquote>
+          <figure class="plate plate--document">
+            <img
+              loading="lazy"
+              src="./images/MapaGarrotxa.png"
+              alt="Mapa de la Garrotxa"
+              width="570"
+              height="551"
+            />
+            <figcaption>
+              La comarca de la Garrotxa, amb Olot al centre.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
-      <section class="les-tietes">
-        <h2>Les Tietes de Sant Roc</h2>
+      <div class="divider" aria-hidden="true">
+        <span class="quatre-barres"></span>
+      </div>
 
-        <p>
-          La Carme i la Maria, dues germanes nascudes a l'ombra dels volcans de
-          La Garrotxa, van esdevenir figures clau en el teixit emprenedor i
-          comercial de la regió. Des d'una edat primerenca, es van destacar per
-          la seva visió avantguardista i un esperit inquebrantablement
-          feminista, decidides a trencar les barreres en un món dominat pels
-          homes. Amb una passió per l'innovació i un compromís profund amb la
-          igualtat de gènere, van fundar una sèrie d'empreses que no només van
-          prosperar econòmicament sinó que també van servir com a plataformes
-          per a l'empoderament de les dones dins i fora de la comunitat. La seva
-          visió empresarial es va estendre més enllà dels límits tradicionals,
-          explorant des de noves tècniques agrícoles fins a iniciatives de
-          comerç just, sempre amb el focus posat en la sostenibilitat i
-          l'equitat. Les germanes van esdevenir un símbol de progrés i
-          resiliència, deixant un llegat impereceder que va inspirar generacions
-          futures a perseguir els seus somnis amb valentia i a lluitar per un
-          món més just i igualitari.
-        </p>
+      <section class="section" id="les-tietes" data-reveal>
+        <p class="section__eyebrow">Les pioneres</p>
+        <h2 class="section__title">Les Tietes de Sant Roc</h2>
 
-        <img
-          loading="lazy"
-          class="vintage-rounded"
-          src="./images/tietes-sant-roc.jpg"
-          alt="Tietes de Sant Roc"
-        />
-        <p>
-          <q
-            >D'esquerra a dreta, la tieta Carme i la tieta Maria, al Fluvià a
-            l'alçada de Can Basil.</q
-          >
-        </p>
-        <img
-          loading="lazy"
-          src="./images/tietes.jpg"
-          alt="Tietes de Sant Roc"
-        />
-        <p>
-          <q
-            >La primera a d'alt a l'esquerra, la tieta Carme. Abaix, la segona
-            començant per l'esquerra, la tieta Maria. Foto del Centre
-            excursionista Olot (CEO)</q
-          >
-        </p>
+        <div class="section__body">
+          <p class="drop-cap">
+            La Carme i la Maria, dues germanes nascudes a l'ombra dels volcans
+            de la Garrotxa, van esdevenir figures clau en el teixit emprenedor i
+            comercial de la regió. Des d'una edat primerenca, es van destacar
+            per la seva visió avantguardista i un esperit inquebrantablement
+            feminista, decidides a trencar les barreres en un món dominat pels
+            homes.
+          </p>
+          <p>
+            Amb una passió per la innovació i un compromís profund amb la
+            igualtat de gènere, van fundar una sèrie d'empreses que no només van
+            prosperar econòmicament sinó que també van servir com a plataformes
+            per a l'empoderament de les dones dins i fora de la comunitat. La
+            seva visió empresarial es va estendre més enllà dels límits
+            tradicionals, explorant des de noves tècniques agrícoles fins a
+            iniciatives de comerç just, sempre amb el focus posat en la
+            sostenibilitat i l'equitat.
+          </p>
+          <p>
+            Les germanes van esdevenir un símbol de progrés i resiliència,
+            deixant un llegat imperible que va inspirar generacions futures a
+            perseguir els seus somnis amb valentia i a lluitar per un món més
+            just i igualitari.
+          </p>
+        </div>
+
+        <div class="gallery">
+          <figure class="plate plate--photo" data-reveal>
+            <img
+              loading="lazy"
+              src="./images/tietes-sant-roc.jpg"
+              alt="Les tietes de Sant Roc al Fluvià"
+              width="866"
+              height="512"
+            />
+            <figcaption>
+              D'esquerra a dreta, la tieta Carme i la tieta Maria, al Fluvià a
+              l'alçada de Can Basil.
+            </figcaption>
+          </figure>
+          <figure class="plate plate--photo" data-reveal>
+            <img
+              loading="lazy"
+              src="./images/tietes.jpg"
+              alt="Sortida del Centre Excursionista Olot amb les tietes"
+              width="2048"
+              height="1536"
+            />
+            <figcaption>
+              La primera a dalt a l'esquerra, la tieta Carme. A baix, la segona
+              començant per l'esquerra, la tieta Maria. Foto del Centre
+              Excursionista Olot (CEO).
+            </figcaption>
+          </figure>
+        </div>
       </section>
 
-      <section>
-        <h2>La Garrotxa</h2>
-        <p>
-          El terme "garrotxa" prové del català antic i es refereix a un relleu
-          abrupte i de roques, "aspre, trencat i de mal trepitjar". Avui dia,
-          aquesta definició ni es digna a aparèixer als diccionaris actuals
-          perquè ningú usa la paraula per a definir un territori, però es manté
-          en la denominació d'una de les comarques més especials i boniques de
-          Catalunya. Al nord de Girona, amb la serralada dels Pirineus a punt
-          d'entrar en escena, La Garrotxa neix com un dels paratges més fèrtils
-          de tota la Península Ibèrica. Un territori verd que deixa espai a res
-          menys que quaranta-dos volcans, extensos fagedes de conte, fermosos
-          cingles de basalt i prats esquitxats de masies centenàries. O una
-          xarxa de viles i pobles medievals amb l'encant suficient com per
-          convertir-se en autèntiques màquines del temps i fer-nos tornar a
-          l'època dels senyors feudals i els remences. Racons de romànic pur els
-          quals els capitells són capaços de narrar diversos llibres alhora
-          sense haver de passar una sola pàgina.
-        </p>
+      <div class="divider" aria-hidden="true">
+        <span class="quatre-barres"></span>
+      </div>
 
-        <img
-          loading="lazy"
-          src="./images/santa-pau.jpeg"
-          alt="volcans a la garrotxa"
-        />
+      <section class="section" id="la-garrotxa" data-reveal>
+        <p class="section__eyebrow">La terra</p>
+        <h2 class="section__title">La Garrotxa</h2>
+
+        <div class="section__body">
+          <p class="drop-cap">
+            El terme «garrotxa» prové del català antic i es refereix a un
+            relleu abrupte i de roques, «aspre, trencat i de mal trepitjar».
+            Avui dia, aquesta definició ni es digna a aparèixer als diccionaris
+            actuals perquè ningú usa la paraula per a definir un territori, però
+            es manté en la denominació d'una de les comarques més especials i
+            boniques de Catalunya.
+          </p>
+          <p>
+            Al nord de Girona, amb la serralada dels Pirineus a punt d'entrar en
+            escena, la Garrotxa neix com un dels paratges més fèrtils de tota la
+            Península Ibèrica. Un territori verd que deixa espai a res menys que
+            quaranta-dos volcans, extenses fagedes de conte, formosos cingles de
+            basalt i prats esquitxats de masies centenàries. O una xarxa de
+            viles i pobles medievals amb l'encant suficient com per convertir-se
+            en autèntiques màquines del temps i fer-nos tornar a l'època dels
+            senyors feudals i els remences. Racons de romànic pur els quals els
+            capitells són capaços de narrar diversos llibres alhora sense haver
+            de passar una sola pàgina.
+          </p>
+        </div>
+
+        <ul class="stats" role="list">
+          <li class="stats__item">
+            <span class="stats__value">42</span>
+            <span class="stats__label">volcans</span>
+          </li>
+          <li class="stats__item">
+            <span class="stats__value">Fagedes</span>
+            <span class="stats__label">de conte</span>
+          </li>
+          <li class="stats__item">
+            <span class="stats__value">Cingles</span>
+            <span class="stats__label">de basalt</span>
+          </li>
+          <li class="stats__item">
+            <span class="stats__value">Viles</span>
+            <span class="stats__label">medievals</span>
+          </li>
+        </ul>
+
+        <figure class="plate plate--photo plate--wide" data-reveal>
+          <img
+            loading="lazy"
+            src="./images/santa-pau.jpeg"
+            alt="Volcans a la Garrotxa, prop de Santa Pau"
+            width="1200"
+            height="800"
+          />
+          <figcaption>
+            Els volcans de la Garrotxa, a tocar de Santa Pau.
+          </figcaption>
+        </figure>
       </section>
 
-      <section>
-        <h2>El parlar de la Garrotxa</h2>
+      <div class="divider" aria-hidden="true">
+        <span class="quatre-barres"></span>
+      </div>
 
-        <p>
-          El <strong>parlar de la Garrotxa</strong> o
-          <strong>garrotxí</strong> és la varietat del català parlada en aquesta
-          comarca. Pertany al subdialecte català septentrional de transició i,
-          per tant, presenta trets comuns tant amb el català central com amb el
-          català septentrional. Els particularismes del garrotxí es deuen en
-          part al relatiu aïllament geogràfic en què ha viscut la comarca al
-          llarg dels segles, però també als estrets vincles històrics amb el
-          Vallespir. Malgrat les diferències que encara perviuen entre la parla
-          de l'Alta Garrotxa i els encontorns d'Olot, la capital de la comarca
-          ha exercit un paper cohesionador d'aquest parlar. Com en altres
-          parlars septentrionals de transició, durant les últimes dècades es
-          constata una interrupció de la transmissió generacional d'alguns trets
-          propis del garrotxí; aquest fenomen s'ha atribuït a l'augment de la
-          mobilitat dels parlants més joves i a la pressió de formes centrals o
-          estàndard a través de l'ensenyança i els mitjans de comunicació.
-        </p>
+      <section class="section" id="el-parlar" data-reveal>
+        <p class="section__eyebrow">La llengua</p>
+        <h2 class="section__title">El parlar de la Garrotxa</h2>
 
-        <h3>Lèxic</h3>
+        <div class="section__body">
+          <p class="drop-cap">
+            El <strong>parlar de la Garrotxa</strong> o
+            <strong>garrotxí</strong> és la varietat del català parlada en
+            aquesta comarca. Pertany al subdialecte català septentrional de
+            transició i, per tant, presenta trets comuns tant amb el català
+            central com amb el català septentrional. Els particularismes del
+            garrotxí es deuen en part al relatiu aïllament geogràfic en què ha
+            viscut la comarca al llarg dels segles, però també als estrets
+            vincles històrics amb el Vallespir.
+          </p>
+          <p>
+            Malgrat les diferències que encara perviuen entre la parla de
+            l'Alta Garrotxa i els encontorns d'Olot, la capital de la comarca ha
+            exercit un paper cohesionador d'aquest parlar. Com en altres parlars
+            septentrionals de transició, durant les últimes dècades es constata
+            una interrupció de la transmissió generacional d'alguns trets propis
+            del garrotxí; aquest fenomen s'ha atribuït a l'augment de la
+            mobilitat dels parlants més joves i a la pressió de formes centrals
+            o estàndard a través de l'ensenyança i els mitjans de comunicació.
+          </p>
+        </div>
 
-        <p>
+        <h3 class="section__subtitle">Lèxic garrotxí</h3>
+        <p class="lexicon__intro">
           El lèxic propi del garrotxí és vastíssim. Algunes paraules típiques i
-          d'ús freqüent són les següents: <i>arreveixinar-se</i> ('refer-se
-          d'una malaltia'), <i>barrumera</i> ('bromera'), <i>becus</i> ('ecs'),
-          <i>botzinar</i> ('rondinar'), <i>caçar</i> ('cercar'),
-          <i>carica</i> ('cara trista o llarga'), <i>castís</i> ('trempat'),
-          <i>de cent en celis</i> ('de tant en tant'),
-          <i>al cim de</i> ('damunt'), <i>condeir</i> ('péixer'),
-          <i>conill</i> ('despullat'), <i>corrou</i> ('corró'),
-          <i>cresent</i> ('obedient'), <i>desatent</i> ('desfici'),
-          <i>empardalar-se</i> ('enamorar-se'),
-          <i>entrebanqueta</i> ('traveta'), <i>estimberri</i> ('cingle'),
-          <i>gardela</i> ('bufetada'), <i>peixixa</i> ('paciència'),
-          <i>quets</i> ('sabatilles esportives'), <i>talaiar</i> ('vigilar',
-          sobretot la mainada), <i>tita carmellosa</i> o
-          <i>carmellera</i> ('gall dindi'), <i>torraina</i> ('moc sec'),
-          <i>tou</i> ('begut'). Una de les particularitats que més criden
-          l'atenció dels forasters és l'ús abundant i amb múltiples sentits del
-          verb <i>cardar</i> on altres dialectes prefereixen <i>fotre</i>.
+          d'ús freqüent són les següents:
         </p>
 
-        <a href="https://ca.wikipedia.org/wiki/Parlar_de_la_Garrotxa"
+        <dl class="lexicon" role="list">
+          <div class="lexicon__card"><dt>arreveixinar-se</dt><dd>refer-se d'una malaltia</dd></div>
+          <div class="lexicon__card"><dt>barrumera</dt><dd>bromera</dd></div>
+          <div class="lexicon__card"><dt>becus</dt><dd>ecs</dd></div>
+          <div class="lexicon__card"><dt>botzinar</dt><dd>rondinar</dd></div>
+          <div class="lexicon__card"><dt>caçar</dt><dd>cercar</dd></div>
+          <div class="lexicon__card"><dt>carica</dt><dd>cara trista o llarga</dd></div>
+          <div class="lexicon__card"><dt>castís</dt><dd>trempat</dd></div>
+          <div class="lexicon__card"><dt>de cent en celis</dt><dd>de tant en tant</dd></div>
+          <div class="lexicon__card"><dt>al cim de</dt><dd>damunt</dd></div>
+          <div class="lexicon__card"><dt>condeir</dt><dd>péixer</dd></div>
+          <div class="lexicon__card"><dt>conill</dt><dd>despullat</dd></div>
+          <div class="lexicon__card"><dt>corrou</dt><dd>corró</dd></div>
+          <div class="lexicon__card"><dt>cresent</dt><dd>obedient</dd></div>
+          <div class="lexicon__card"><dt>desatent</dt><dd>desfici</dd></div>
+          <div class="lexicon__card"><dt>empardalar-se</dt><dd>enamorar-se</dd></div>
+          <div class="lexicon__card"><dt>entrebanqueta</dt><dd>traveta</dd></div>
+          <div class="lexicon__card"><dt>estimberri</dt><dd>cingle</dd></div>
+          <div class="lexicon__card"><dt>gardela</dt><dd>bufetada</dd></div>
+          <div class="lexicon__card"><dt>peixixa</dt><dd>paciència</dd></div>
+          <div class="lexicon__card"><dt>quets</dt><dd>sabatilles esportives</dd></div>
+          <div class="lexicon__card"><dt>talaiar</dt><dd>vigilar, sobretot la mainada</dd></div>
+          <div class="lexicon__card"><dt>tita carmellosa</dt><dd>gall dindi</dd></div>
+          <div class="lexicon__card"><dt>torraina</dt><dd>moc sec</dd></div>
+          <div class="lexicon__card"><dt>tou</dt><dd>begut</dd></div>
+        </dl>
+
+        <p class="lexicon__note">
+          Una de les particularitats que més criden l'atenció dels forasters és
+          l'ús abundant i amb múltiples sentits del verb <i>cardar</i> on altres
+          dialectes prefereixen <i>fotre</i>.
+        </p>
+
+        <a
+          class="text-link"
+          href="https://ca.wikipedia.org/wiki/Parlar_de_la_Garrotxa"
           >Llegir més a la Viquipèdia</a
         >
       </section>
     </main>
 
-    <footer>
-      <div class="footer-container">
-        <div class="footer-column">
+    <footer class="footer">
+      <div class="footer__bars" aria-hidden="true"></div>
+      <div class="footer__container">
+        <div class="footer__brand">
+          <img
+            class="footer__escut"
+            loading="lazy"
+            src="./images/olot.png"
+            alt="Escut d'Olot"
+            width="1280"
+            height="1789"
+          />
+          <p class="footer__wordmark">Soms<span>.cat</span></p>
+          <p class="footer__tagline">Fet amb estima a la Garrotxa.</p>
+        </div>
+        <div class="footer__column">
           <h4>La Garrotxa</h4>
-          <ul>
-            <li><a href="https://ca.turismegarrotxa.com/">Turisme Garrotxa</a></li>
-            <li><a href="https://www.elrincondesele.com/razones-viajar-la-garrotxa-que-ver-hacer/">10 motius</a></li>
-            <li><a href="https://www.elrincondesele.com/pueblos-medievales-mas-bonitos-la-garrotxa/">Pobles de la Garrotxa</a></li>
+          <ul role="list">
+            <li>
+              <a href="https://ca.turismegarrotxa.com/">Turisme Garrotxa</a>
+            </li>
+            <li>
+              <a
+                href="https://www.elrincondesele.com/razones-viajar-la-garrotxa-que-ver-hacer/"
+                >10 motius</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.elrincondesele.com/pueblos-medievales-mas-bonitos-la-garrotxa/"
+                >Pobles de la Garrotxa</a
+              >
+            </li>
           </ul>
         </div>
-        <div class="footer-column">
+        <div class="footer__column">
           <h4>Altres</h4>
-          <ul>
+          <ul role="list">
             <li><a href="https://pearpages.com">pearpages.com</a></li>
           </ul>
         </div>
       </div>
     </footer>
 
+    <script src="script.js" defer></script>
   </body>
 </html>
