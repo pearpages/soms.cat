@@ -26,4 +26,10 @@ Single-page static homage to the Soms family and La Garrotxa. Deployed on GitHub
 - Fixed broken meta placeholders (og:image, favicon now real files), added theme-color, og:locale.
 - Catalan copy-edits (Família, imperible, formosos, extenses fagedes, a dalt/A baix, etc.); long paragraphs split for rhythm.
 - Verified in Chrome at 1440px and 390px: no horizontal overflow, reveals work, senyera strips render correctly.
-- **Pending TODOs**: none. Optional future ideas: compress `tietes.jpg` (900 KB) into an optimized copy; dedicated 1200×630 OG card.
+- **Pending TODOs**: none. Optional future idea: compress `tietes.jpg` (900 KB) into an optimized copy.
+
+### 2026-08-04 — Open Graph card
+- Generated `images/og.webp` (1200×630 WebP, 84 KB) from `santa-pau.jpeg` via the `og-card` skill.
+- `index.html`: og:image/twitter:image now point at `https://soms.cat/images/og.webp`; added og:image:width/height/type/alt and twitter:image:alt (Catalan alt text).
+- Note: `node` is not on PATH in this machine's default shell; mise has installs — use `~/.local/share/mise/installs/node/<version>/bin/node` directly.
+- After deploy, validate the card with the Facebook Sharing Debugger / opengraph.xyz (needs the live URL).
