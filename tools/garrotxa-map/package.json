@@ -1,0 +1,14 @@
+{
+  "name": "garrotxa-map",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "One-off generator for the Garrotxa relief map on soms.cat. Not a site build step — nothing here runs at deploy time.",
+  "scripts": {
+    "build": "node build.mjs",
+    "inject": "node inject.mjs"
+  },
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}

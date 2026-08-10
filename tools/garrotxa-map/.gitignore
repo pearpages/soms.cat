@@ -1,0 +1,5 @@
+# Everything this generator produces or downloads. The .cache is ~87 MB of DEM
+# tiles and WMS responses — keep it, it makes re-runs offline and instant.
+node_modules
+.cache/
+out/

@@ -9,6 +9,7 @@ Single-page static homage to the Soms family and La Garrotxa. Deployed on GitHub
 - **Type**: Fraunces (display/h1/h2/pull quotes), Newsreader (body prose), Space Grotesk (eyebrows, captions, lexicon terms). Google Fonts.
 - **Signature**: *les quatre barres* — senyera-stripe device (`.quatre-barres`, `--senyera-h`/`--senyera-v` gradients) used as fixed left ribbon (≥1024px), section dividers, and footer top strip.
 - **Photos**: real vintage photos presented as archival "plates" (`.plate`) — parchment mat, sepia filter, slight rotation that straightens on hover. The map is a `.plate--document` (no sepia).
+- **Map**: the Garrotxa map is a bespoke shaded-relief plate, not stock art — warm hypsometric ramp on parchment, sepia hillshade, oxide-red comarca hairline, the 35 volcanic cones of the zona volcànica, Olot marked with the one `--groc` dot on the plate. Built by `tools/garrotxa-map/`; see that folder's README.
 - **Motion**: hero load sequence + IntersectionObserver scroll reveals (`data-reveal` in `script.js`). All gated behind `prefers-reduced-motion`; content is visible without JS (reveal styles only apply under `html.js`).
 
 ## Conventions
@@ -17,6 +18,8 @@ Single-page static homage to the Soms family and La Garrotxa. Deployed on GitHub
 - Catalan copy throughout; keep correct Catalan (Família, la introducció, la innovació…).
 - `images/familia.webp` is intentionally unused on the page (AI-generated; clashes with the genuine archival photos). Keep in repo.
 - Images stay untouched/original; `<img>` tags carry `width`/`height` attributes to avoid layout shift.
+- The map SVG in `index.html` lives between the `<!-- mapa:inici -->` / `<!-- mapa:fi -->` markers and is **generated** — edit `tools/garrotxa-map/overlay.mjs` and re-run, never the markup by hand. Its `font-size`s are presentation attributes on purpose (the generator's collision solver must measure what the browser draws), so don't move them into CSS. The `OPEN` constant in `inject.mjs` must match that marker comment byte for byte.
+- `tools/garrotxa-map/` is a one-off generator, not a build step — self-contained, with its own README, `package.json` and `.gitignore`. The site itself still has zero build tooling.
 
 ## Session log
 
@@ -33,3 +36,20 @@ Single-page static homage to the Soms family and La Garrotxa. Deployed on GitHub
 - `index.html`: og:image/twitter:image now point at `https://soms.cat/images/og.webp`; added og:image:width/height/type/alt and twitter:image:alt (Catalan alt text).
 - Note: `node` is not on PATH in this machine's default shell; mise has installs — use `~/.local/share/mise/installs/node/<version>/bin/node` directly.
 - After deploy, validate the card with the Facebook Sharing Debugger / opengraph.xyz (needs the live URL).
+
+### 2026-08-10 — Bespoke Garrotxa relief map
+- Replaced `images/MapaGarrotxa.png` (clip-art: flat orange fill, drop shadow, Arial) with a map built from real data. **Old PNG deleted.**
+- New `images/garrotxa-relleu.webp` (1400×1360, 146 KB) = shaded-relief base only; the linework and lettering are inline SVG in `index.html` (~28 KB raw) so the labels use Fraunces / Space Grotesk.
+- Added the generator under `tools/garrotxa-map/` (see its README).
+- Data: ICGC `OMB2m` 2 m LiDAR hillshade (CC BY 4.0), Copernicus GLO-30 for the colour ramp, OSM for boundary/rivers/cones/settlements (ODbL). **All four credited in the figcaption — ODbL requires it, don't drop it.**
+- Two label sets are generated and laid out independently: full set ≥640px, a shorter set at 1.8× for narrow screens. Verified 0 rendered label overlaps at 390px and 1440px, no horizontal overflow, no console errors.
+- Rejected along the way: AWS terrarium DEM (dataset seams show as tint blocks), municipal hairlines (8.5 KB for grain that never resolves at plate size).
+- Net wire cost vs. before: index.html 5→14 KB gzipped, map image 149→146 KB. About +9 KB.
+- Note the relief WebP loads eagerly (SVG `<image>` has no `loading="lazy"`), where the old PNG was lazy — below-the-fold, so a minor initial-load cost if ever worth revisiting.
+
+### 2026-08-10 — Tidied the generator into one folder
+- Consolidated the seven scattered files (`tools/*.mjs` + `tools/lib/`) into a flat, self-contained `tools/garrotxa-map/` with its own README, `package.json` (`npm run build` / `npm run inject`) and `.gitignore`. Root `.gitignore` is back to just `.DS_Store`.
+- Deleted dead code left behind by mid-build reversals: `fetchPark()` (was doing a full Overpass round trip whose result `buildOverlay` ignored), `pointInRings()`, `relationRings()`, `TYPE.ele`/`TYPE.scale`, and the whole switched-off municipal-boundary path including its CSS and the `admin_level=8` Overpass clause. The *reasons* for the rejections live in the folder README now, not as unreachable code.
+- Fixed a latent trap: `cached()` keyed only on filename, so editing a query silently reused the previous answer. Cache filenames now carry an 8-char hash of the request.
+- Verified behaviour-preserving: rebuild used the moved cache with zero refetch, and the regenerated `index.html` differed only by the marker comment and the removed empty `<g class="mapa__municipis">`; `images/garrotxa-relleu.webp` byte-identical.
+- **Pending TODOs**: none. Same optional idea as before: compress `tietes.jpg` (900 KB).
