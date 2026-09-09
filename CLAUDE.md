@@ -67,3 +67,14 @@ Single-page static homage to the Soms family and La Garrotxa. Deployed on GitHub
 - Labels are bare domains, matching `pearpages.com`. Their own `<title>`s are content-derived ("Font-Romeu · 1760 m · 3 restaurants"), not site names — the descriptive-label style belongs to the *other* column ("Turisme Garrotxa", "10 motius").
 - No `target="_blank"`/`rel` — the page uses neither anywhere, external links included. No `styles.css` change needed.
 - **Pending TODOs**: none. Same optional idea as before: compress `tietes.jpg` (900 KB).
+
+### 2026-09-09 — README en català i desplegament només per tag
+- **Canvi de política de publicació.** Pages passa de `legacy` (branca `main`, cada push publicava) a font "GitHub Actions". Ara **només publica un tag `v*` nou**; els pushos a `main` no toquen el lloc. El domini `soms.cat` i el certificat HTTPS viuen a la config del repo i no els toca el workflow.
+- Nou `.github/workflows/desplega.yml`, en dues feines: `comprova` decideix, `desplega` publica.
+- La guarda consulta els desplegaments de l'entorn `github-pages` i salta si aquell tag ja en té un. Cobreix els tres casos: moure un tag amb `-f`, esborrar-lo i recrear-lo, i re-executar el workflow a mà. `github.event.created` sol no serviria: no atrapa ni el delete+recreate ni el re-run.
+- Es comparen **les dues formes** del `ref` (`v1.0.0` i `refs/tags/v1.0.0`) perquè `actions/deploy-pages` no documenta quina hi grava i no es pot confirmar sense publicar. Els desplegaments legacy hi tenen `main`.
+- Un desplegament **fallat** no bloqueja el tag: només compten els estats `success`/`in_progress`/`queued`, perquè una incidència transitòria no deixi una versió bloquejada per sempre.
+- Trampa trobada provant la guarda contra l'API real: `for id in $ids` no separa per paraules a zsh i enganxava tots els ids en una sola URL. Ara és `while IFS= read -r id ... <<< "$ids"`, que va igual als dos shells.
+- L'artefacte puja **només el lloc** (`index.html`, `styles.css`, `script.js`, `CNAME`, `images/`). En queden fora `CLAUDE.md`, `README.md` i `tools/`. Verificat que cap ruta relativa d'`index.html` queda fora.
+- Nou `README.md` **en català**: què és, sense build, estructura, desenvolupament local, desplegament, disseny, el mapa i els crèdits de dades. Els crèdits ICGC/Copernicus/OSM hi surten perquè **l'ODbL exigeix l'atribució**.
+- **TODOs pendents**: cap. Mateixa idea opcional de sempre: comprimir `tietes.jpg` (900 KB).

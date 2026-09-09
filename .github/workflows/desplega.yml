@@ -1,0 +1,89 @@
+name: Desplegament
+
+# Només publica un tag nou. Tornar a empènyer o moure un tag existent executa el
+# workflow però no republica: la feina "desplega" queda saltada i el lloc es
+# queda tal com està.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  comprova:
+    name: El tag és nou?
+    runs-on: ubuntu-latest
+    outputs:
+      publicar: ${{ steps.tag.outputs.publicar }}
+    steps:
+      - id: tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+
+          # Es comparen les dues formes del ref perquè actions/deploy-pages no
+          # documenta quina hi grava, i no ho podem confirmar sense publicar.
+          ids=$(gh api \
+            "repos/$GITHUB_REPOSITORY/deployments?environment=github-pages&per_page=100" \
+            --jq ".[] | select(.ref == \"$TAG\" or .ref == \"refs/tags/$TAG\") | .id")
+
+          publicar=true
+          while IFS= read -r id; do
+            [ -n "$id" ] || continue
+            # Un desplegament fallat no bloqueja el tag: només compten els que
+            # van arribar (o estan arribant) a bon port.
+            estats=$(gh api "repos/$GITHUB_REPOSITORY/deployments/$id/statuses" \
+              --jq '[.[].state] | join(" ")')
+            case " $estats " in
+              *success*|*in_progress*|*queued*)
+                publicar=false
+                echo "El tag $TAG ja s'ha publicat (desplegament $id: $estats)."
+                break
+                ;;
+            esac
+          done <<< "$ids"
+
+          if [ "$publicar" = true ]; then
+            echo "El tag $TAG és nou: es publica."
+          else
+            echo "No es publica res; el lloc es queda igual."
+          fi
+          echo "publicar=$publicar" >> "$GITHUB_OUTPUT"
+
+  desplega:
+    name: Publica a soms.cat
+    needs: comprova
+    if: needs.comprova.outputs.publicar == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.desplegament.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      # Només el lloc. En queden fora CLAUDE.md, README.md, .gitignore i tot
+      # tools/, que és un generador d'un sol ús i no s'executa mai al desplegar.
+      - name: Preparar els fitxers del lloc
+        run: |
+          set -euo pipefail
+          mkdir -p _lloc
+          cp index.html styles.css script.js CNAME _lloc/
+          cp -R images _lloc/
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _lloc
+
+      - id: desplegament
+        uses: actions/deploy-pages@v4
