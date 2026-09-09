@@ -53,3 +53,17 @@ Single-page static homage to the Soms family and La Garrotxa. Deployed on GitHub
 - Fixed a latent trap: `cached()` keyed only on filename, so editing a query silently reused the previous answer. Cache filenames now carry an 8-char hash of the request.
 - Verified behaviour-preserving: rebuild used the moved cache with zero refetch, and the regenerated `index.html` differed only by the marker comment and the removed empty `<g class="mapa__municipis">`; `images/garrotxa-relleu.webp` byte-identical.
 - **Pending TODOs**: none. Same optional idea as before: compress `tietes.jpg` (900 KB).
+
+### 2026-09-09 — "Made by pearpages" credit footer
+- Adopted `@pearpages/credit` (the shared credit device) via its **Plain HTML** recipe: `<link>` to `https://unpkg.com/@pearpages/credit@0/dist/credit.css` in `<head>` before `styles.css`, plus a `.sk-author` block inside the existing `<footer class="footer">`.
+- `@0` tracks the latest `0.x`, so the styling and the pear icon stay current without editing the page. The site still has zero build tooling.
+- Used `<div class="sk-author">`, not `<footer>` — nesting footers is invalid HTML and would produce a second `contentinfo` landmark. Verified exactly one `<footer>` in the page.
+- Two package contract rules the markup must not break: the icon `<span>` stays **empty** (the pear is a CSS `background`, not an `<img>`), and `.sk-author__credit` keeps **exactly one link** (the rule is the descendant selector `.sk-author__credit a`).
+- Theming is scoped to `.sk-author` in `styles.css`, not `:root` — the package's `--sk-ink-soft`/`--sk-accent` are a foreign namespace; our own tokens stay the source of truth. `--sk-ink-soft: var(--cendra)` is **mandatory**: the package's `#667` fallback fails WCAG AA on this dark ground (3.36:1), `--cendra` gives 6.2:1; `--sk-accent: var(--groc)` gives 13.0:1.
+- Also gave it `max-width: var(--wide)` + `margin: 0 auto` so its hairline `border-top` aligns with `.footer__container`, and `--font-utility` to match the other utility text.
+- The "Altres" column keeps its `pearpages.com` link (user's call), so that link appears twice in the footer by design.
+- Verified in Chrome: unpkg CSS 200, pear renders from the data URI, one line at every width, no horizontal overflow, no console errors.
+- Added three sibling-site links under `pearpages.com` in the footer's "Altres" column: `cerdanya.soms.cat`, `masiablanca.soms.cat`, `bitepals.com`. All three verified 200 (bitepals redirects to `/ca`, so link the bare domain and let its own locale logic run).
+- Labels are bare domains, matching `pearpages.com`. Their own `<title>`s are content-derived ("Font-Romeu · 1760 m · 3 restaurants"), not site names — the descriptive-label style belongs to the *other* column ("Turisme Garrotxa", "10 motius").
+- No `target="_blank"`/`rel` — the page uses neither anywhere, external links included. No `styles.css` change needed.
+- **Pending TODOs**: none. Same optional idea as before: compress `tietes.jpg` (900 KB).

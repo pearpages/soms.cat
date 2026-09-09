@@ -841,6 +841,19 @@ main {
   text-underline-offset: 0.3em;
 }
 
+/* "Made by pearpages" — @pearpages/credit. The package's #667 fallback fails
+   AA on this dark ground, so --sk-ink-soft is mandatory, not decoration. */
+.sk-author {
+  --sk-ink-soft: var(--cendra);
+  --sk-accent: var(--groc);
+
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding-top: 1.75rem;
+  border-top: 1px solid color-mix(in srgb, var(--cendra) 22%, transparent);
+  font-family: var(--font-utility);
+}
+
 @media screen and (min-width: 1024px) {
   .footer__container {
     flex-direction: row;
