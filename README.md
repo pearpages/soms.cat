@@ -19,7 +19,7 @@ navegador entén tal com estan:
 | `script.js` | només les revelacions per scroll (`IntersectionObserver`) |
 | `images/` | fotografies, escut, mapa i targeta Open Graph |
 | `CNAME` | el domini de GitHub Pages |
-| `CLAUDE.md` | sistema de disseny, convencions i registre de sessions |
+| `AGENTS.md` | com treballar-hi; enllaça els documents del projecte (`principles.md`, `architecture.md`, `decisions.md`, `tasks.md`, `security.md`) |
 | `tools/garrotxa-map/` | generador del mapa — **no** és un pas de construcció |
 
 `script.js` és millora progressiva pura: sense JavaScript la pàgina es veu sencera, i
@@ -73,7 +73,7 @@ Dues coses que val la pena tenir presents:
   ja existia. Comprova-ho a la pestanya Actions o mirant l'entorn `github-pages`.
 
 El desplegament només puja el lloc — `index.html`, `styles.css`, `script.js`, `CNAME` i
-`images/`. `CLAUDE.md`, aquest README i `tools/` es queden al repositori.
+`images/`. Els documents del projecte, aquest README i `tools/` es queden al repositori.
 
 ## Disseny
 
@@ -81,8 +81,9 @@ El sistema es diu **"Basalt volcànic"**: fons de carbó volcànic, el groc de l
 a accent protagonista, fotografies tractades com a làmines d'arxiu i *les quatre barres*
 com a element de signatura. Tipografies Fraunces, Newsreader i Space Grotesk.
 
-Els tokens, les convencions (BEM, mobile-first, còpia en català) i el registre de decisions
-viuen a [`CLAUDE.md`](CLAUDE.md).
+Els tokens i l'estructura viuen a [`architecture.md`](architecture.md), les convencions
+(BEM, mobile-first, còpia en català) a [`principles.md`](principles.md) i el registre de
+decisions a [`decisions.md`](decisions.md).
 
 ## El mapa de la Garrotxa
 
@@ -109,3 +110,9 @@ El peu "Made by pearpages" ve de
 d'unpkg amb `@0` perquè es mantingui al dia sol. El lloc només hi posa els dos tokens de
 tema que el paquet demana: sobre aquest fons fosc, el color per defecte del paquet no
 compliria el contrast WCAG AA.
+
+## Llicència
+
+Sense llicència: **tots els drets reservats**. Les fotografies són d'arxiu familiar i els
+textos són propis; no es poden reutilitzar sense permís. Les dades del mapa conserven les
+seves llicències (vegeu [Crèdits de les dades](#crèdits-de-les-dades)).
