@@ -17,6 +17,7 @@ item, and add a dated line at the top of **Done**.
 
 ## Done
 
+- [x] 2026-09-25: Added ficcio.soms.cat to the footer's "Altres" column.
 - [x] 2026-09-25: Scaffolded project knowledge files — 12 created, 3 fixed, 1 follow-up. CLAUDE.md is now a shim; ADRs 0002–0005 accepted; README states no license (all rights reserved).
 - [x] 2026-09-09: Catalan README and tag-only deploy — Pages source switched to GitHub Actions; `desplega.yml` publishes only a new `v*` tag; artifact holds only the site.
 - [x] 2026-09-09: Added three sibling-site links (`cerdanya.soms.cat`, `masiablanca.soms.cat`, `bitepals.com`) under "Altres" in the footer.
