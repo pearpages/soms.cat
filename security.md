@@ -20,8 +20,12 @@ the repo; enable it in Settings → Code security.
   a third-party resource.
 - **Third-party resources loaded by every visitor:** Google Fonts
   (`fonts.googleapis.com`, `fonts.gstatic.com`) and
-  `unpkg.com/@pearpages/credit@0/dist/credit.css`. Both are CSS/fonts, no third-party
-  JavaScript. They see visitors' IPs and user agents.
+  `unpkg.com/@pearpages/credit@0/dist/credit.css`. Both are CSS/fonts. They see visitors'
+  IPs and user agents.
+- **Analytics:** `https://analytics.pearpages.com/script.js`, the author's self-hosted,
+  cookieless Umami instance (footfall). The only script not served from this repo. It
+  stores nothing on the device and sends pageviews only to that instance, never to third
+  parties, so no consent banner is needed.
 - **Deploy pipeline:** `.github/workflows/desplega.yml` runs on tag pushes with
   `contents: read`, `pages: write`, `id-token: write`. It reads the deployments API with
   the built-in `github.token` and interpolates only `github.ref_name` (via `env`, not
@@ -55,6 +59,9 @@ the repo; enable it in Settings → Code security.
   package and the point of `@0` is to stay current (ADR-0005).
 - **Google Fonts** is a third-party request that exposes visitor IPs to Google. Accepted
   for the design; self-hosting would remove it.
+- **Self-hosted analytics script without SRI.** `analytics.pearpages.com/script.js` runs
+  with full page access; a compromise of that server could inject script. Accepted: it is
+  the author's own instance and Umami updates the script in place.
 - **Actions pinned by tag, not SHA.** A moved tag on a first-party GitHub action would run
   in the deploy job. Accepted for first-party actions.
 - **No lockfile for the generator.** `sharp@^0.34.5` resolves at install time. Accepted:

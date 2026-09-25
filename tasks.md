@@ -11,12 +11,14 @@ item, and add a dated line at the top of **Done**.
 
 ### Backlog
 
+- [ ] **Verify the footfall tag live after the next `v*` tag** — `curl -s https://soms.cat/ | grep -c analytics.pearpages.com`, then run footfall's `scripts/check-tags.sh`.
 - [ ] **Compress `tietes.jpg`** (900 KB) into an optimized copy — optional; largest asset on the page.
 - [ ] **Validate the Open Graph card on the live URL** — Facebook Sharing Debugger / opengraph.xyz; can only be checked after deploy.
 - [ ] **Consider lazy-loading the relief map** — optional; SVG `<image>` loads `garrotxa-relleu.webp` eagerly although it is below the fold.
 
 ## Done
 
+- [x] 2026-09-25: Added the footfall (self-hosted, cookieless Umami) analytics tag to `index.html`; security.md and architecture.md list it.
 - [x] 2026-09-25: Added ficcio.soms.cat to the footer's "Altres" column.
 - [x] 2026-09-25: Scaffolded project knowledge files — 12 created, 3 fixed, 1 follow-up. CLAUDE.md is now a shim; ADRs 0002–0005 accepted; README states no license (all rights reserved).
 - [x] 2026-09-09: Catalan README and tag-only deploy — Pages source switched to GitHub Actions; `desplega.yml` publishes only a new `v*` tag; artifact holds only the site.

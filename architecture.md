@@ -70,11 +70,13 @@ request), and uses `sharp` for raster work. Its README records what was tried an
 ## Data flow
 
 No server-side logic, no state, no user input. The page loads three first-party files plus
-images, and two third-party resources at runtime:
+images, and three external resources at runtime:
 
 - Google Fonts CSS and font files (`fonts.googleapis.com`, `fonts.gstatic.com`).
 - `https://unpkg.com/@pearpages/credit@0/dist/credit.css` — floats on the latest `0.x`, so
   the footer credit stays current without editing the page.
+- `https://analytics.pearpages.com/script.js` — the footfall tag (self-hosted, cookieless
+  Umami), `defer`red on its own line just before `</head>`, site ID from footfall's README.
 
 The relief WebP is referenced from an SVG `<image>`, which has no `loading="lazy"`, so it
 loads eagerly even though it sits below the fold.
