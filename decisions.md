@@ -16,6 +16,7 @@ accepted.
 | [0003](docs/adr/0003-bespoke-relief-map.md) | The Garrotxa map is a bespoke relief plate built by a one-off generator | Accepted | 2026-08-10 |
 | [0004](docs/adr/0004-deploy-on-new-tag.md) | Publish only when a new `v*` tag is pushed | Accepted | 2026-09-09 |
 | [0005](docs/adr/0005-pearpages-credit-footer.md) | Footer credit comes from `@pearpages/credit@0` via unpkg | Accepted | 2026-09-09 |
+| [0006](docs/adr/0006-work-in-github-issues.md) | Work is tracked in GitHub Issues, not `tasks.md` | Accepted | 2026-11-04 |
 
 ## Format
 

@@ -13,7 +13,7 @@ published only when a new `v*` tag is pushed.
 | [principles.md](principles.md) | The rules every change must follow |
 | [architecture.md](architecture.md) | How the project is built: design system, page structure, map generator, deploy |
 | [decisions.md](decisions.md) | Index of ADRs in `docs/adr/`: why each choice was made |
-| [tasks.md](tasks.md) | Open work and the dated log of what was done |
+| [Issues](https://github.com/pearpages/soms.cat/issues) | Open work, also on the [Backlog](https://github.com/users/pearpages/projects/3) board. Closed issues and git are the record of what was done |
 | [security.md](security.md) | Threat surface, secrets, dependency policy, how to report a vulnerability |
 
 [README.md](README.md) (in Catalan) is the user-facing entry point.
@@ -23,8 +23,9 @@ published only when a new `v*` tag is pushed.
 
 1. **Read `principles.md` before changing code or docs.** If a change would break a
    principle, stop and ask; don't work around it.
-2. **Every change updates `tasks.md`**: tick or add Open items, and add a dated line at the
-   top of Done.
+2. **Work is tracked in GitHub Issues**, not in a file. New work → `gh issue create` with
+   `type:*`, `priority:*` and `area:*` labels. Finished work → close the issue from the commit
+   or PR (`Fixes #N`).
 3. **A structural or behavioural change updates `architecture.md` in the same commit**, and
    the README too when users can see it.
 4. **A choice between real alternatives** (API shape, dependency, convention, process) gets

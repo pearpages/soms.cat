@@ -19,7 +19,7 @@ navegador entén tal com estan:
 | `script.js` | només les revelacions per scroll (`IntersectionObserver`) |
 | `images/` | fotografies, escut, mapa i targeta Open Graph |
 | `CNAME` | el domini de GitHub Pages |
-| `AGENTS.md` | com treballar-hi; enllaça els documents del projecte (`principles.md`, `architecture.md`, `decisions.md`, `tasks.md`, `security.md`) |
+| `AGENTS.md` | com treballar-hi; enllaça els documents del projecte (`principles.md`, `architecture.md`, `decisions.md`, `security.md`) |
 | `tools/garrotxa-map/` | generador del mapa — **no** és un pas de construcció |
 
 `script.js` és millora progressiva pura: sense JavaScript la pàgina es veu sencera, i
